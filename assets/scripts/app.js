@@ -1,8 +1,12 @@
 const defaultResult = 0;
 let currentResult = defaultResult;
 
+function getUserInputNum() {
+    return +userInput.value;
+}
+
 function add() {
-    const userNum = +userInput.value;
+    const userNum = getUserInputNum();
     const calcDescription = `${currentResult} + ${userNum}`
     currentResult = currentResult + userNum;
     outputResult(currentResult, calcDescription);
