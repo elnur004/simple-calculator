@@ -27,7 +27,7 @@ function writeToLog(operationIdentifier, prevResult, operationNumber, newResult)
 }
 
 function clearInput() {
-    userInput.value = '';
+    userInput.value = null;
 }
 
 function add() {
