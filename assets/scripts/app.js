@@ -30,7 +30,7 @@ function clearInput() {
     userInput.value = null;
 }
 
-function calculateType(operationType) {
+function calculationType(operationType) {
     const enteredNumb = getUserInputNum();
     const initialResult = currentResult;
     let operator;
@@ -38,23 +38,22 @@ function calculateType(operationType) {
     if(operationType === 'ADD') {
         operator = '+'
         currentResult += enteredNumb;
-        createAndWriteOutput(operator, initialResult, currentResult);
-        writeToLog('ADD', initialResult, enteredNumb, currentResult);
+        
     } else {
         operator = '-'
         currentResult -= enteredNumb;
-        createAndWriteOutput(operator, initialResult, currentResult);
-        writeToLog('SUBTRACT', initialResult, enteredNumb, currentResult);
     }
+    createAndWriteOutput(operator, initialResult, currentResult);
+    writeToLog(operationType, initialResult, enteredNumb, currentResult);
 }
 
 function add() {
-    calculateType('ADD')
+    calculationType('ADD')
     clearInput();
 }
 
 function subrtact() {
-    calculateType('SUBTRACT');
+    calculationType('SUBTRACT');
     clearInput();
 }
 
