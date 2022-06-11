@@ -30,21 +30,31 @@ function clearInput() {
     userInput.value = null;
 }
 
-function add() {
+function calculateType(operationType) {
     const enteredNumb = getUserInputNum();
     const initialResult = currentResult;
-    currentResult += enteredNumb;
-    createAndWriteOutput('+', initialResult, currentResult);
-    writeToLog('ADD', initialResult, enteredNumb, currentResult);
+    let operator;
+    
+    if(operationType === 'ADD') {
+        operator = '+'
+        currentResult += enteredNumb;
+        createAndWriteOutput(operator, initialResult, currentResult);
+        writeToLog('ADD', initialResult, enteredNumb, currentResult);
+    } else {
+        operator = '-'
+        currentResult -= enteredNumb;
+        createAndWriteOutput(operator, initialResult, currentResult);
+        writeToLog('SUBTRACT', initialResult, enteredNumb, currentResult);
+    }
+}
+
+function add() {
+    calculateType('ADD')
     clearInput();
 }
 
 function subrtact() {
-    const enteredNumb = getUserInputNum();
-    const initialResult = currentResult;
-    currentResult -= enteredNumb;
-    createAndWriteOutput('-', initialResult, currentResult);
-    writeToLog('SUBTRACT', initialResult, enteredNumb, currentResult);
+    calculateType('SUBTRACT');
     clearInput();
 }
 
