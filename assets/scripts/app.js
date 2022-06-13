@@ -31,6 +31,15 @@ function clearInput() {
 }
 
 function calculationType(operationType) {
+    if (
+      operationType !== 'ADD' && 
+      operationType !== 'SUBTRACT' && 
+      operationType !== 'MULTIPLY' && 
+      operationType !== 'DIVIDE'
+    ) {
+      return;
+    }
+
     const enteredNumb = getUserInputNum();
     const initialResult = currentResult;
     let operator;
